@@ -1,8 +1,8 @@
 # EXPERIMENT-01-INTERFACTING-DIGITAL-OUTPUT-WITH-EDGE-DEVICE---(RASPBERRYPI-PICO)
-### NAME 
-### DEPARTMENT 
-### ROLL NO 
-### DATE OF EXPERIMENT 
+### NAME : Karna S
+### DEPARTMENT : CSE (IoT)
+### ROLL NO : 212222110017
+### DATE OF EXPERIMENT : 
 
 ### AIM
 To interface a digital output device (LED) with the Raspberry Pi Pico and control it using MicroPython.
@@ -40,24 +40,115 @@ Connect the cathode (shorter leg) of the LED to GND (ground).
 
 
 ## PROGRAM (MicroPython)
+### Interfacing LED with time delay
+```
+from machine import Pin
+import time
+led = Pin(0, Pin.OUT)
+while True:
+    led.on()
+    print("LED is ON")
+    time.sleep(1)
+    led.off()
+    print("LED is OFF")
+    time.sleep(1)
+```
+### Interfacing Multiple LEDs with time delay
+```
+from machine import Pin
+import time
+red_led = Pin(0, Pin.OUT)
+green_led = Pin(2, Pin.OUT)
+blue_led = Pin(4, Pin.OUT)
+blink_delay = 0.5
+
+while True:
+
+    print("Red LED ON")
+    red_led.on()
+    time.sleep(blink_delay)
+    red_led.off()
+    time.sleep(blink_delay)
+
+    print("Green LED ON")
+    green_led.on()
+    time.sleep(blink_delay)
+    green_led.off()
+    time.sleep(blink_delay)
+
+    print("Blue LED ON")
+    blue_led.on()
+    time.sleep(blink_delay)
+    blue_led.off()
+    time.sleep(blink_delay)
+
+    print("All LEDs ON")
+    red_led.on()
+    green_led.on()
+    blue_led.on()
+    time.sleep(1) 
+    red_led.off()
+    green_led.off()
+    blue_led.off()
+    time.sleep(1) 
 ```
 
+### Interfacing Multiple LEDs and a Buzzer with time delay
+```
+from machine import Pin
+import time
 
- 
+led1 = Pin(0, Pin.OUT)
+led2 = Pin(2, Pin.OUT)
+led3 = Pin(4, Pin.OUT)
+buzzer = Pin(6, Pin.OUT)
 
+delay = 2
 
+led1.off()
+led2.off()
+led3.off()
+buzzer.off()
 
- 
-````
+while True:
+    led2.on()
+    print("LED 2 is ON")
+    time.sleep(delay)
+    led2.off()
+    print("LED 2 is OFF")
+    time.sleep(delay)
+
+    led3.on()
+    buzzer.on()
+    print("LED 3 is ON, Buzzer is ON")
+    time.sleep(delay)
+    led3.off()
+    buzzer.off()
+    print("LED 3 is OFF, Buzzer is OFF")
+    time.sleep(delay)
+
+    led1.on()
+    print("LED 1 is ON")
+    time.sleep(delay)
+    led1.off()
+    print("LED 1 is OFF")
+    time.sleep(delay)
+```
 
 ### OUPUT  
 
+<img width="1365" height="643" alt="image" src="https://github.com/user-attachments/assets/02090527-678b-4924-b957-2935f1e56f3b" />
 
-# FIGURE -02 ADD TITILE HERE 
 
-#  FIGURE -03 ADD TITILE HERE 
+### FIGURE -02 : Interfacing LED with time delay
 
-# FIGURE -04 ADD TITLE HERE 
+<img width="1365" height="594" alt="image" src="https://github.com/user-attachments/assets/5728c0b4-fdc4-484d-b66f-a9c868535d2c" />
+
+###  FIGURE -03 : Interfacing Multiple LEDs with time delay
+
+<img width="1365" height="598" alt="image" src="https://github.com/user-attachments/assets/d73d61ef-d903-41d6-b52c-f761d6488cac" />
+
+### FIGURE -04 : Interfacing Multiple LEDs and a Buzzer with time delay
 
 
  
